@@ -10,4 +10,8 @@
     <PackageReference Include="System.Data.OleDb" Version="10.0.12" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\1ceGra4pe\1ceGra4pe.csproj" />
+  </ItemGroup>
+
 </Project>
