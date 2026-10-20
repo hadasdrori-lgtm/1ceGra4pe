@@ -26,7 +26,7 @@ namespace ViewModel
             return g;
 
         }
-        protected override BaseEntity NewEntity()
+        public override BaseEntity NewEntity()
         {
             return new GenreTbl();
         }
@@ -37,6 +37,28 @@ namespace ViewModel
             c.Genre = reader["Genre"].ToString();
             base.CreateModel(entity);
             return entity;
+        }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            GenreTbl p = entity as GenreTbl;
+            if (p != null)
+            {
+                string sqlStr = "UPDATE GenreTbl SET Genre=@pGenre WHERE ID=@id";
+                cmd.CommandText = sqlStr;
+                cmd.Parameters.Add(new OleDbParameter("@pGenre", p.Genre));
+                cmd.Parameters.Add(new OleDbParameter("@id", p.Id));
+            }
         }
     }
 }

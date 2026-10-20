@@ -26,7 +26,7 @@ namespace ViewModel
             return g;
 
         }
-        protected override BaseEntity NewEntity()
+        public override BaseEntity NewEntity()
         {
             return new ArtistTbl();
         }
@@ -37,6 +37,21 @@ namespace ViewModel
             a.Genre = reader["Genre"].ToString();
             base.CreateModel(entity);
             return a;
+        }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ViewModel
             return lst;
         }
 
-        protected override BaseEntity NewEntity()
+        public override BaseEntity NewEntity()
         {
             return new ChordEventTbl();
         }
@@ -34,6 +34,30 @@ namespace ViewModel
 
             base.CreateModel(entity);
             return entity;
+        }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            ChordEventTbl p = entity as ChordEventTbl;
+            if (p != null)
+            {
+                string sqlStr = "UPDATE ChordEventTbl SET SongId=@pSongId, Chord=@pChord, TimeSeconds=@pTimeSeconds WHERE ID=@id";
+                cmd.CommandText = sqlStr;
+                cmd.Parameters.Add(new OleDbParameter("@pSongId", p.Songid.Id));
+                cmd.Parameters.Add(new OleDbParameter("@pChord",p.Chord));
+                cmd.Parameters.Add(new OleDbParameter("@pTimeSeconds", p.Timeseconds));
+                cmd.Parameters.Add(new OleDbParameter("@id", p.Id));
+            }
         }
     }
 }

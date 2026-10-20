@@ -26,7 +26,7 @@ namespace ViewModel
             return g;
 
         }
-        protected override BaseEntity NewEntity()
+        public override BaseEntity NewEntity()
         {
             return new PersonTbl();
         }
@@ -40,6 +40,28 @@ namespace ViewModel
             return entity;
         }
 
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
 
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            PersonTbl p = entity as PersonTbl;
+            if (p != null)
+            {
+                string sqlStr = $"UPDATE PersonTbl SET Name=@pName, Email=@pEmail, Passw=@pPassw WHERE ID=@id";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@pName", p.Name));
+                command.Parameters.Add(new OleDbParameter("@pEmail", p.Email));
+                command.Parameters.Add(new OleDbParameter("@pPassw", p.Passw));
+                command.Parameters.Add(new OleDbParameter("@id", p.Id));
+            }
+        }
     }
 }

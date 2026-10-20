@@ -19,7 +19,7 @@ namespace ViewModel
             return songLineLst;
 
         }
-        protected override BaseEntity NewEntity()
+        public override BaseEntity NewEntity()
         {
             return new SongLineTbl();
         }
@@ -35,5 +35,19 @@ namespace ViewModel
             return entity;
         }
 
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
