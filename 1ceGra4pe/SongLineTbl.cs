@@ -10,11 +10,11 @@ namespace _1ceGra4pe
     {
         private int linenumber;
         private string lyrics;
-        private int starttime;
+        private double starttime;
         private SongTbl songid; 
         public int Linenumber { get => linenumber; set => linenumber = value; }
         public string Lyrics { get => lyrics; set => lyrics = value; }
-        public int Starttime { get => starttime; set => starttime = value; }
+        public double Starttime { get => starttime; set => starttime = value; }
         public SongTbl Songid { get => songid; set => songid = value; }
     }
 }

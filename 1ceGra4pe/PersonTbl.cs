@@ -10,10 +10,15 @@ namespace _1ceGra4pe
     {
         private string name;
         private string email;
-        private string password;
+        private string passw;
 
         public string Name { get => name; set => name = value; }
         public string Email { get => email; set => email = value; }
-        public string Password { get => password; set => password = value; }
+        public string Passw { get => passw; set => passw = value; }
+
+        public object SelectAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

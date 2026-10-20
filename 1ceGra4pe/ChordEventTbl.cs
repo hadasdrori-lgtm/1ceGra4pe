@@ -10,11 +10,11 @@ namespace _1ceGra4pe
     public class ChordEventTbl:BaseEntity
     {
         private string chord;
-        private int timeseconds;
-        private SongTbl song;
+        private double timeseconds;
+        private SongTbl songid;
 
         public string Chord { get => chord; set => chord = value; }
-        public int Timeseconds { get => timeseconds; set => timeseconds = value; }
-        public SongTbl Song { get => song; set => song = value; }
+        public double Timeseconds { get => timeseconds; set => timeseconds = value; }
+        public SongTbl Songid { get => songid; set => songid = value; }
     }
 }
