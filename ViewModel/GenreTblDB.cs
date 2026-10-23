@@ -51,6 +51,7 @@ namespace ViewModel
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
+         
             GenreTbl p = entity as GenreTbl;
             if (p != null)
             {

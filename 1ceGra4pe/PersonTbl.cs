@@ -16,9 +16,5 @@ namespace _1ceGra4pe
         public string Email { get => email; set => email = value; }
         public string Passw { get => passw; set => passw = value; }
 
-        public object SelectAll()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

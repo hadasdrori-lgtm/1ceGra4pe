@@ -26,14 +26,6 @@ namespace _1ceGra4pe
         public PersonTbl Addedby { get => addedby; set => addedby = value; }
         public GenreTbl Genre { get => genre; set => genre = value; }
 
-        public SongTblList SelectAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static implicit operator SongTbl(int v)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

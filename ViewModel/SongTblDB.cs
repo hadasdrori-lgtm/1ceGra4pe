@@ -62,7 +62,21 @@ namespace ViewModel
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            SongTbl p = entity as SongTbl;
+            if (p != null)
+            {
+                string sqlStr = "UPDATE SongTbl SET Title=@pTitle, Artist=@pArtist, Likes=@pLikes, SongKey=@pSongKey, Capo=@pCapo, CreatedBy=@pCreatedBy, DateAdded=@pDateAdded, Genre=@pGenre, WHERE ID=@id";
+                cmd.CommandText = sqlStr;
+                cmd.Parameters.Add(new OleDbParameter("@pTitle", p.Title));
+                cmd.Parameters.Add(new OleDbParameter("@pArtist",p.Artist.Artistname));
+                cmd.Parameters.Add(new OleDbParameter("@pSongKey",p.Songkey));
+                cmd.Parameters.Add(new OleDbParameter("@pCapo", p.Capo));   
+                cmd.Parameters.Add(new OleDbParameter("@pLikes", p.Likes));
+                cmd.Parameters.Add(new OleDbParameter("@pCreatedBy",p.Addedby));
+                cmd.Parameters.Add(new OleDbParameter("@pDateAdded", p.Dateadded));
+                cmd.Parameters.Add(new OleDbParameter("@pGenre", p.Genre.Genre));
+                cmd.Parameters.Add(new OleDbParameter("@id", p.Id));
+            }
         }
     }
 }

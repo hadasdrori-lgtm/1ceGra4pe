@@ -51,7 +51,11 @@ namespace ViewModel
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            //AdminTbl a= entity as AdminTbl;
+            //if (a != null)
+            //{ 
+            //    string sqlStr= $"Update AdminTbl SET "
+            //}
         }
     }
 }

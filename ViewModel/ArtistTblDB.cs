@@ -34,7 +34,7 @@ namespace ViewModel
         {
             ArtistTbl a= entity as ArtistTbl;
             a.Artistname = reader["Artistname"].ToString();
-            a.Genre = reader["Genre"].ToString();
+            a.Genre = GenreTblDB.SelectById((int)reader["Genre"]);
             base.CreateModel(entity);
             return a;
         }
@@ -51,7 +51,15 @@ namespace ViewModel
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            ArtistTbl p = entity as ArtistTbl;
+            if (p != null)
+            {
+                string sqlStr = $"UPDATE ArtistTbl SET ArtistName=@pArtistName, Genre=@pGenre, WHERE ID=@id";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@pArtistName", p.Artistname));
+                command.Parameters.Add(new OleDbParameter("@pGenre", p.Genre.Genre));
+                command.Parameters.Add(new OleDbParameter("@id", p.Id));
+            }
         }
     }
 }
