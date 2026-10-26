@@ -24,7 +24,7 @@ namespace ViewModel
             return new SongLineTbl();
         }
 
-        protected virtual BaseEntity CreateModel(BaseEntity entity)
+        protected override  BaseEntity CreateModel(BaseEntity entity)
         {
             SongLineTbl d = entity as SongLineTbl;
             d.Songid = SongTblDB.SelectById((int)reader["id"]);
