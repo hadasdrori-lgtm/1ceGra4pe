@@ -11,10 +11,5 @@ namespace _1ceGra4pe
         private string genre;
 
         public string Genre { get => genre; set => genre = value; }
-
-        public GenreTblList SelectAll()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

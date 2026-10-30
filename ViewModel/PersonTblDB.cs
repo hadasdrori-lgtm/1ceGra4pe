@@ -47,7 +47,15 @@ namespace ViewModel
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            PersonTbl p= entity as PersonTbl;
+            if (p != null)
+            {
+                string sqlStr = $"Insert INTO PersonTbl (Name,Email,Passw)" + "VALUES(@pName,@pEmail,@pPassw)";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@pName", p.Name));
+                command.Parameters.Add(new OleDbParameter("@pEmail", p.Email));
+                command.Parameters.Add(new OleDbParameter("@pPassw", p.Passw));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)

@@ -46,7 +46,13 @@ namespace ViewModel
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            GenreTbl g= entity as GenreTbl;
+            if (g != null)
+            {
+                string sqlStr = $"Insert INTO GenreTbl (Genre) VALUES (@pGenre)";
+                command.CommandText = sqlStr ;
+                cmd.Parameters.Add(new OleDbParameter("@pGenre", g.Genre));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)

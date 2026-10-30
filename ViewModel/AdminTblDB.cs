@@ -46,12 +46,12 @@ namespace ViewModel
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            //WORK ON IT
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-                  ///////////NO NEED!
+           //WORK ON IT
         }
     }
 }

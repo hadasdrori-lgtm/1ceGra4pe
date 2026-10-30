@@ -43,7 +43,15 @@ namespace ViewModel
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            ChordEventTbl p= entity as ChordEventTbl;
+            if (p != null)
+            {
+                string sqlStr = $"Insert INTO ChordEventTbl(SongId,Chord,TimeSeconds)" + "VALUES (@pSongId,@pChord,@pTimeSeconds)";
+                cmd.CommandText = sqlStr;
+                cmd.Parameters.Add(new OleDbParameter("@pSongId", p.Songid.Id));
+                cmd.Parameters.Add(new OleDbParameter("@pChord", p.Chord));
+                cmd.Parameters.Add(new OleDbParameter("@pTimeSeconds", p.Timeseconds));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)

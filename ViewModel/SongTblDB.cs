@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using _1ceGra4pe;
 using System.Data.OleDb;
 using System.Data;
+using System.Windows.Markup;
 
 
 namespace ViewModel
@@ -57,7 +58,20 @@ namespace ViewModel
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            SongTbl p = entity as SongTbl;
+            if (p != null)
+            {
+                string sqlStr = $"Insert INTO SongTbl (Title,Artist,Likes,SongKey,Capo,CreatedBy,DateAdded,Genre)"+ "VALUES (@pTitle,@pArtist,@pLikes,@pSongKey,@pCapo, @pCreatedBy,@pDateAdded, @pGenre)";
+                cmd.CommandText = sqlStr;
+                cmd.Parameters.Add(new OleDbParameter("@pTitle", p.Title));
+                cmd.Parameters.Add(new OleDbParameter("@pArtist", p.Artist.Id));
+                cmd.Parameters.Add(new OleDbParameter("@pLikes", p.Likes));
+                cmd.Parameters.Add(new OleDbParameter("@pSongKey", p.Songkey));
+                cmd.Parameters.Add(new OleDbParameter("@pCapo", p.Capo));
+                cmd.Parameters.Add(new OleDbParameter("@pCreatedBy", p.Addedby.Id));
+                cmd.Parameters.Add(new OleDbParameter("@pDateAdded", System.Data.OleDb.OleDbType.Date).Value = p.Dateadded.Date);
+                cmd.Parameters.Add(new OleDbParameter("@pGenre", p.Genre.Id));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
@@ -73,9 +87,9 @@ namespace ViewModel
                 cmd.Parameters.Add(new OleDbParameter("@pArtist",p.Artist.Id));
                 cmd.Parameters.Add(new OleDbParameter("@pLikes", p.Likes));
                 cmd.Parameters.Add(new OleDbParameter("@pSongKey",p.Songkey));
-                cmd.Parameters.Add(new OleDbParameter("@pCapo", p.Capo));        
-                cmd.Parameters.Add(new OleDbParameter("@pCreatedBy",p.Addedby.Id));
-               // cmd.Parameters.Add(new OleDbParameter("@pDateAdded", System.Data.OleDb.OleDbType.Date).Value= p.Dateadded.Date);
+                cmd.Parameters.Add(new OleDbParameter("@pCapo", p.Capo));
+                cmd.Parameters.Add(new OleDbParameter("@pCreatedBy", p.Addedby.Id));
+                cmd.Parameters.Add(new OleDbParameter("@pDateAdded", System.Data.OleDb.OleDbType.Date).Value = p.Dateadded.Date);
                 cmd.Parameters.Add(new OleDbParameter("@pGenre", p.Genre.Id));
                 cmd.Parameters.Add(new OleDbParameter("@id", p.Id));
             }

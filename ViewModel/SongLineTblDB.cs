@@ -42,7 +42,16 @@ namespace ViewModel
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            SongLineTbl p = entity as SongLineTbl;
+            if (p != null)
+            {
+                string sqlStr = $"Insert INTO SongLineTbl(SongId,LineNumber,Lyrics,StartTime)" + "VALUES (@pSongId,@pLineNumber,@pLyrics,@pStartTime)";
+                cmd.CommandText = sqlStr;
+                cmd.Parameters.Add(new OleDbParameter("@pSongId", p.Songid.Id));
+                cmd.Parameters.Add(new OleDbParameter("@pLineNumber", p.Linenumber));
+                cmd.Parameters.Add(new OleDbParameter("@pLyrics", p.Lyrics));
+                cmd.Parameters.Add(new OleDbParameter("@pStartTime", p.Starttime));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
@@ -50,7 +59,7 @@ namespace ViewModel
             SongLineTbl p = entity as SongLineTbl;
             if (p != null)
             {
-                string sqlStr = "UPDATE SongLineTbl SET SongId=@pSongId, LineNumber=@pLineNumber, Lyrics=@pLyrics, StartTime=@pStartTime  WHERE ID=@id";
+                string sqlStr = $"UPDATE SongLineTbl SET SongId=@pSongId, LineNumber=@pLineNumber, Lyrics=@pLyrics, StartTime=@pStartTime  WHERE ID=@id";
                 cmd.CommandText = sqlStr;
                 cmd.Parameters.Add(new OleDbParameter("@pSongId", p.Songid.Id));
                 cmd.Parameters.Add(new OleDbParameter("@pLineNumber", p.Linenumber));
