@@ -42,7 +42,7 @@ namespace ViewModel
             c.Artist = ArtistTblDB.SelectById((int)reader["Artist"]);
             c.Likes = (int)reader["Likes"];
             c.Songkey = reader["SongKey"].ToString();
-            c.Addedby = PersonTblDB.SelectById((int)reader["CreatedBy"]);
+            c.Addedby = AdminTblDB.SelectById((int)reader["CreatedBy"]);
             c.Capo = (int)reader["Capo"];
             c.Dateadded = (DateTime)(reader["DateAdded"]);
             c.Genre= GenreTblDB.SelectById((int)reader["Genre"]);
@@ -53,7 +53,13 @@ namespace ViewModel
 
         protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            SongTbl p = entity as SongTbl;
+            if (p != null)
+            {
+                string sqlStr = $"DELETE FROM SongTbl where id=@pid";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@pid", p.Id));
+            }
         }
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
@@ -69,7 +75,7 @@ namespace ViewModel
                 cmd.Parameters.Add(new OleDbParameter("@pSongKey", p.Songkey));
                 cmd.Parameters.Add(new OleDbParameter("@pCapo", p.Capo));
                 cmd.Parameters.Add(new OleDbParameter("@pCreatedBy", p.Addedby.Id));
-                cmd.Parameters.Add(new OleDbParameter("@pDateAdded", System.Data.OleDb.OleDbType.Date).Value = p.Dateadded.Date);
+                cmd.Parameters.Add(new OleDbParameter("@pDateAdded", p.Dateadded));
                 cmd.Parameters.Add(new OleDbParameter("@pGenre", p.Genre.Id));
             }
         }
@@ -79,17 +85,15 @@ namespace ViewModel
             SongTbl p = entity as SongTbl;
             if (p != null)
             {
-                string sqlStr = $"UPDATE SongTbl SET Title=@pTitle, Artist=@pArtist, " +
-                    $"Likes=@pLikes, SongKey=@pSongKey, Capo=@pCapo, CreatedBy=@pCreatedBy," +
-                    $" DateAdded=#{p.Dateadded}#, Genre=@pGenre WHERE ID=@id";
+                string sqlStr = $"UPDATE SongTbl SET Title=@pTitle, Artist=@pArtist,Likes=@pLikes, SongKey=@pSongKey, Capo=@pCapo, CreatedBy=@pCreatedBy,DateAdded=@pDateadded, Genre=@pGenre WHERE ID=@id";
                 cmd.CommandText = sqlStr;
                 cmd.Parameters.Add(new OleDbParameter("@pTitle", p.Title));
                 cmd.Parameters.Add(new OleDbParameter("@pArtist",p.Artist.Id));
                 cmd.Parameters.Add(new OleDbParameter("@pLikes", p.Likes));
                 cmd.Parameters.Add(new OleDbParameter("@pSongKey",p.Songkey));
                 cmd.Parameters.Add(new OleDbParameter("@pCapo", p.Capo));
-                cmd.Parameters.Add(new OleDbParameter("@pCreatedBy", p.Addedby.Id));
-                cmd.Parameters.Add(new OleDbParameter("@pDateAdded", System.Data.OleDb.OleDbType.Date).Value = p.Dateadded.Date);
+                cmd.Parameters.Add(new OleDbParameter("@pCreatedBy", p.Addedby.Id)); 
+                cmd.Parameters.Add(new OleDbParameter("@pDateAdded", p.Dateadded.Date));
                 cmd.Parameters.Add(new OleDbParameter("@pGenre", p.Genre.Id));
                 cmd.Parameters.Add(new OleDbParameter("@id", p.Id));
             }

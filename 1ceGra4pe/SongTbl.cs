@@ -14,7 +14,7 @@ namespace _1ceGra4pe
         private int capo;
         private int likes;
         private DateTime dateadded;
-        private PersonTbl addedby;
+        private AdminTbl addedby;
         private GenreTbl genre;
 
         public string Title { get => title; set => title = value; }
@@ -23,7 +23,7 @@ namespace _1ceGra4pe
         public int Capo { get => capo; set => capo = value; }
         public int Likes { get => likes; set => likes = value; }
         public DateTime Dateadded { get => dateadded; set => dateadded = value; }
-        public PersonTbl Addedby { get => addedby; set => addedby = value; }
+        public AdminTbl Addedby { get => addedby; set => addedby = value; }
         public GenreTbl Genre { get => genre; set => genre = value; }
 
        

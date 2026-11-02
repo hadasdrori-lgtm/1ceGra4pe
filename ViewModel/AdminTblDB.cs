@@ -21,7 +21,15 @@ namespace ViewModel
 
             return new AdminTblList(base.Select());
         }
+        static private AdminTblList list = new AdminTblList();
+        public static AdminTbl SelectById(int id)
+        {
+            AdminTblDB songTbl = new AdminTblDB();
+            list = songTbl.SelectAll();
+            AdminTbl g = list.Find(item => item.Id == id);
+            return g;
 
+        }
         public override BaseEntity NewEntity()
         {
             return new AdminTbl();
@@ -46,12 +54,12 @@ namespace ViewModel
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            //WORK ON IT
+            throw new NotImplementedException();
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-           //WORK ON IT
+            throw new NotImplementedException();
         }
     }
 }
