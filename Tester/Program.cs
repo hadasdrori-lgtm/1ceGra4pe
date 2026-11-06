@@ -271,26 +271,26 @@ namespace Tester
 
             // Create all DB objects and lists
 
-            PersonTblDB personDB = new();
-            PersonTblList persons = personDB.SelectAll();
+            //PersonTblDB personDB = new();
+            //PersonTblList persons = personDB.SelectAll();
 
-            GenreTblDB genreDB = new();
-            GenreTblList genres = genreDB.SelectAll();
+            //GenreTblDB genreDB = new();
+            //GenreTblList genres = genreDB.SelectAll();
 
-            ChordEventTblDB chordDB = new();
-            ChordEventTblList chords = chordDB.SelectAll();
+            //ChordEventTblDB chordDB = new();
+            //ChordEventTblList chords = chordDB.SelectAll();
 
-            ArtistTblDB artistDB = new();
-            ArtistTblList artists = artistDB.SelectAll();
+            //ArtistTblDB artistDB = new();
+            //ArtistTblList artists = artistDB.SelectAll();
 
-            SongTblDB songDB = new();
-            SongTblList songs = songDB.SelectAll();
+            //SongTblDB songDB = new();
+            //SongTblList songs = songDB.SelectAll();
 
-            SongLineTblDB songLineDB = new();
-            SongLineTblList songLines = songLineDB.SelectAll();
+            //SongLineTblDB songLineDB = new();
+            //SongLineTblList songLines = songLineDB.SelectAll();
 
-            AdminTblDB adminDB = new();
-            AdminTblList admins = adminDB.SelectAll();
+            //AdminTblDB adminDB = new();
+            //AdminTblList admins = adminDB.SelectAll();
 
 
             // ==========================================
@@ -468,10 +468,10 @@ namespace Tester
             // ADMIN - SHOW ONLY
             // ==========================================
 
-            foreach (AdminTbl admin in admins)
-            {
-                Console.WriteLine(admin.Name);
-            }
+            //foreach (AdminTbl admin in admins)
+            //{
+            //    Console.WriteLine(admin.Name);
+            //}
 
 
         }

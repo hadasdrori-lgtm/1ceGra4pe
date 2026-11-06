@@ -1,0 +1,6 @@
+@_1cegr4apeAPI_HostAddress = http://localhost:5125
+
+GET {{_1cegr4apeAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
