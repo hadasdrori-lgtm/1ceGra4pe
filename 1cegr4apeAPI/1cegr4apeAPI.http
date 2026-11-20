@@ -1,6 +1,31 @@
+@1cegr4apeAPI_HostAddress = http://localhost:5125
 @_1cegr4apeAPI_HostAddress = http://localhost:5125
 
 GET {{_1cegr4apeAPI_HostAddress}}/weatherforecast/
 Accept: application/json
+
+###
+
+GET {{1cegr4apeAPI_HostAddress}}/api/selectapi/SelectAllAdmins
+
+###
+
+GET {{1cegr4apeAPI_HostAddress}}/api/selectapi/SelectAllArtists
+
+###
+
+GET {{1cegr4apeAPI_HostAddress}}/api/selectapi/SelectAllSongLines
+
+###
+
+GET {{1cegr4apeAPI_HostAddress}}/api/selectapi/SelectAllSongs
+
+###
+
+GET {{1cegr4apeAPI_HostAddress}}/api/SelectApi/AdminSelector
+
+###
+
+GET {{1cegr4apeAPI_HostAddress}}/api/SelectApi/ArtistSelector
 
 ###

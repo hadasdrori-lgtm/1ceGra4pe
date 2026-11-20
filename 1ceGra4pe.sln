@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1cegr4apeAPI", "1cegr4apeAPI\1cegr4apeAPI.csproj", "{3FB7793F-2EAF-40BE-9C10-DFB4A8886093}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{9ED91B86-8BD5-447B-881A-19E1E6AEF21E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3FB7793F-2EAF-40BE-9C10-DFB4A8886093}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FB7793F-2EAF-40BE-9C10-DFB4A8886093}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FB7793F-2EAF-40BE-9C10-DFB4A8886093}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ED91B86-8BD5-447B-881A-19E1E6AEF21E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ED91B86-8BD5-447B-881A-19E1E6AEF21E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ED91B86-8BD5-447B-881A-19E1E6AEF21E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ED91B86-8BD5-447B-881A-19E1E6AEF21E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

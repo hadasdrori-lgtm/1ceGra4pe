@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\1cegr4apeAPI\1cegr4apeAPI.csproj" />
     <ProjectReference Include="..\1ceGra4pe\1ceGra4pe.csproj" />
+    <ProjectReference Include="..\Service\Service.csproj" />
     <ProjectReference Include="..\ViewModel\ViewModel.csproj" />
   </ItemGroup>
 
