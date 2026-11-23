@@ -27,7 +27,7 @@ namespace ViewModel
         protected override  BaseEntity CreateModel(BaseEntity entity)
         {
             SongLineTbl d = entity as SongLineTbl;
-            d.Songid = SongTblDB.SelectById((int)reader["id"]);
+            d.Songid = SongTblDB.SelectById((int)reader["SongId"]);
             d.Linenumber = (int)reader["LineNumber"];
             d.Lyrics = reader["Lyrics"].ToString();
             d.Starttime = (double)reader["StartTime"];

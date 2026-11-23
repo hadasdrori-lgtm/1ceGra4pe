@@ -29,3 +29,51 @@ GET {{1cegr4apeAPI_HostAddress}}/api/SelectApi/AdminSelector
 GET {{1cegr4apeAPI_HostAddress}}/api/SelectApi/ArtistSelector
 
 ###
+
+GET {{1cegr4apeAPI_HostAddress}}/api/selectapi/SelectAllPersons
+
+###
+
+GET {{1cegr4apeAPI_HostAddress}}/api/selectapi/SelectAllChordEvents
+
+###
+
+DELETE {{1cegr4apeAPI_HostAddress}}/api/selectapi/DeleteAPerson
+
+###
+
+PUT {{1cegr4apeAPI_HostAddress}}/api/selectapi/UpdateAChordEvent
+Content-Type: application/json
+
+{
+  //ChordEventTbl
+}
+
+###
+
+PUT {{1cegr4apeAPI_HostAddress}}/api/selectapi/UpdateAPerson
+Content-Type: application/json
+
+{
+  //PersonTbl
+}
+
+###
+
+POST {{1cegr4apeAPI_HostAddress}}/api/selectapi/InsertAPerson
+Content-Type: application/json
+
+{
+  //PersonTbl
+}
+
+###
+
+POST {{1cegr4apeAPI_HostAddress}}/api/selectapi/InsertAPerson
+Content-Type: application/json
+
+{
+  //PersonTbl
+}
+
+###

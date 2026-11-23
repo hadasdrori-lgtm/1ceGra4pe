@@ -11,7 +11,6 @@ namespace _1cegr4apeAPI.Controllers
     public class SelectApiController : ControllerBase
     {
         [HttpGet]
-        [ActionName("AdminSelector")]
         public AdminTblList SelectAllAdmins()
         { 
             AdminTblDB db = new AdminTblDB();
@@ -19,7 +18,6 @@ namespace _1cegr4apeAPI.Controllers
             return admins;
         }
         [HttpGet]
-        [ActionName("ArtistSelector")]
         public ArtistTblList SelectAllArtists()
         {
             ArtistTblDB db = new ArtistTblDB();
@@ -28,7 +26,6 @@ namespace _1cegr4apeAPI.Controllers
         }
 
         [HttpGet]
-        [ActionName("ChordEventSelector")]
         public ChordEventTblList SelectAllChordEvents()
         {
             ChordEventTblDB db = new ChordEventTblDB();
@@ -37,7 +34,6 @@ namespace _1cegr4apeAPI.Controllers
         }
 
         [HttpGet]
-        [ActionName("GenreSelector")]
         public GenreTblList SelectAllGenres()
         {
             GenreTblDB db = new GenreTblDB();
@@ -46,7 +42,6 @@ namespace _1cegr4apeAPI.Controllers
         }
 
         [HttpGet]
-        [ActionName("PersonSelector")]
         public PersonTblList SelectAllPersons()
         {
             PersonTblDB db = new PersonTblDB();
@@ -55,7 +50,6 @@ namespace _1cegr4apeAPI.Controllers
         }
 
         [HttpGet]
-        [ActionName("SongLineSelector")]
         public SongLineTblList SelectAllSongLines()
         {
             SongLineTblDB db = new SongLineTblDB();
@@ -64,7 +58,6 @@ namespace _1cegr4apeAPI.Controllers
         }
 
         [HttpGet]
-        [ActionName("SongSelector")]
         public SongTblList SelectAllSongs()
         {
             SongTblDB db = new SongTblDB();
